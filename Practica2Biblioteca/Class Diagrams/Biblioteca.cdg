@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Biblioteca">
+  <ClassDiagramComponents>
+    <Class name="Biblioteca" package="" visibility="public" xPosition="234.0" yPosition="18.0">
+      <Fields>
+        <Field name="llibres" type="ArrayList" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Copias" package="" visibility="public" xPosition="234.0" yPosition="194.0">
+      <Fields>
+        <Field name="identificador" type="String" visibility="private"/>
+        <Field name="Estado" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Lector" package="" visibility="public" xPosition="57.0" yPosition="464.0">
+      <Fields>
+        <Field name="dni" type="String" visibility="private"/>
+        <Field name="idPrestamo" type="List" visibility="private"/>
+        <Field name="numeroMaximoPrestamo" type="int" visibility="private"/>
+        <Field name="nom" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Llibres" package="" visibility="public" xPosition="487.0" yPosition="137.0">
+      <Fields>
+        <Field name="Nom" type="String" visibility="private"/>
+        <Field name="editorial" type="String" visibility="private"/>
+        <Field name="any" type="int" visibility="private"/>
+        <Field name="autor" type="String" visibility="private"/>
+        <Field name="tipus" type="ArrayList" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Autor" package="" visibility="public" xPosition="487.0" yPosition="405.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+        <Field name="nacionalitat" type="String" visibility="private"/>
+        <Field name="dataNaixement" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Class name="Prestamo" package="" visibility="public" xPosition="28.0" yPosition="283.0">
+      <Fields>
+        <Field name="fechaInicial" type="int" visibility="private"/>
+        <Field name="fechaFinal" type="int" visibility="private"/>
+        <Field name="idPrestamo" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods/>
+    </Class>
+    <Enum name="Estado" package="" visibility="public" xPosition="13.0" yPosition="108.0">
+      <Literals>
+        <Literal name="Prestada"/>
+        <Literal name="Biblioteca"/>
+        <Literal name="Retraso"/>
+        <Literal name="Reparacion"/>
+      </Literals>
+    </Enum>
+    <Enum name="TipusLlibre" package="" visibility="public" xPosition="819.0" yPosition="98.0">
+      <Literals>
+        <Literal name="Biologia"/>
+        <Literal name="Matematicas"/>
+        <Literal name="Historia"/>
+        <Literal name="Fantasia"/>
+        <Literal name="Accion"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="tiene" source="Copias" target="Estado" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="tiene" source="Biblioteca" target="Copias" type="Composition" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="Son" source="Llibres" target="TipusLlibre" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="Prestamo" target="Copias" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Copias" target="Llibres"/>
+    <HasRelation name="Coje" source="Lector" target="Prestamo" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="tiene" source="Autor" target="Llibres" type="Aggregation" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
